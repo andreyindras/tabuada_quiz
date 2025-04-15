@@ -1,0 +1,374 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+  }
+
+  body {
+    background: #191970;
+    overflow: hidden;
+  }
+
+.main.active{
+  filter: blur(15px);  
+  pointer-events: none;
+}  
+
+.conteiner{
+  display: flex;
+  height: 100vh;  
+  width: 200%;
+}
+
+.apresentacao_site { 
+  position: relative;
+  left: -50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.caixa_apresentacao {
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.caixa_apresentacao h1 {
+  font-size: 78px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.caixa_apresentacao p {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.caixa_apresentacao .botao_iniciar{
+  width: 190px;
+  height: 55px;
+  font-size: 26px;
+  color: #191970; 
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.caixa_apresentacao .botao_iniciar:hover{
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  background-color: #191970;
+  color: #fff;
+  transition: .3s;
+}
+ 
+.caixa_instrucoes{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(.9);  
+  width: 500px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px 25px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s ease;
+}
+
+.caixa_instrucoes.active{
+  opacity: 1;
+  pointer-events: auto;  
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.caixa_instrucoes h2{
+  font-size: 50px;
+  color: #191970;  
+}
+
+.caixa_instrucoes .instrucao{
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+.caixa_instrucoes .grp_botoes{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #999;
+  margin-top: 10px;
+  padding: 15px 0 7px;
+}
+
+.caixa_instrucoes .grp_botoes .instrucao_btn{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 45px;
+  background: #191970;
+  border: 2px solid #191970;
+  outline: none;
+  border-radius: 6px;  
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  transition: .3s;
+}
+
+.caixa_instrucoes .grp_botoes .instrucao_btn:nth-child(1){
+  background: transparent;
+  color: #191970;
+}
+
+.caixa_instrucoes .grp_botoes .instrucao_btn:nth-child(1):hover{
+  background: #191970;
+  color: #fff;
+}
+
+.caixa_instrucoes .grp_botoes .instrucao_btn:nth-child(2):hover{
+  background: #16085b;
+  border-color: #16085b;
+}
+
+.quiz_perguntas{
+  position: relative;
+  left: -50%; 
+  width: 100%;
+  background: #16085b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100; 
+  transition: .8s ease-in-out; 
+  transition-delay: .25s;
+}
+
+.quiz_perguntas.active{
+  left: 0;  
+}
+
+.quiz_perguntas .quiz-box{ 
+  position: relative;
+  width: 500px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+
+
+
+.quiz-cabecalho h1{
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.quiz-box .quiz-cabecalho{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 2px solid #999;
+  margin-bottom: 10px;
+}
+
+.quiz-cabecalho .cabecalho-pontuacao{
+  color: #fff;
+  background: #222294;
+  border-radius: 3px;
+  padding: 7px;
+}
+
+.quiz-box .textos-questoes{
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.opcoes-lista .opcao{
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 2px solid #999;
+  border-radius: 4px;
+  font: 17px;
+  margin: 15px 0;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.opcoes-lista .opcao:hover{
+  background: #999;
+  border-color: #999;
+}
+
+.opcoes-lista .opcao.correta{
+  border-color: #00FF00;
+  background:  #00FF00;
+}
+
+.opcoes-lista .opcao.incorreta{
+  border-color: #FF0000;
+  background: #FF0000;
+}
+
+.opcoes-lista .opcao.desabilitado{
+  pointer-events: none;
+}
+
+.quiz-box .quiz-rodape{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #999;
+  padding-top: 20px;
+  margin-top: 25px
+}
+
+.quiz-rodape .total-questoes{
+  font-size: 16px;
+  font-weight: 600;
+
+}
+
+.quiz-rodape .proximo-btn{
+  width: 150px;
+  height: 45px;
+  background: #fff;
+  border: 2px solid #222294;
+  color: #222294;
+  outline: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.quiz-rodape .proximo-btn.ativo{
+  pointer-events: auto;
+  background: #222294;
+  border-color: #222294;
+  color: #fff;
+}
+
+.quiz-rodape .proximo-btn.ativo:hover{
+  background: #16085b;
+  border-color: #16085b;
+  color: #fff;
+}
+
+.quiz_perguntas .resultado-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(.9);
+  width: 500px;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s ease;
+}
+
+.quiz_perguntas .resultado-box.active{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.resultado-box h2{
+  font-size: 42px;
+}
+
+.resultado-box .porcentagem-conteiner{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 40px;
+}
+
+.resultado-box .circular-grafico{
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: conic-gradient(#222294 3.6deg, #999 0deg);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultado-box .circular-grafico::before{
+  content: '';
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.circular-grafico .porcentagem-acertos{
+  position: relative;
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.porcentagem-conteiner .pontucao-texto{
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.resultado-box .botoes{
+  display: flex;
+}
+
+.botoes button{
+  width: 143px;
+  height: 57px;
+  background: #191970;
+  border: 2px solid #191970;
+  outline: none;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+  margin: 0 20px 20px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.botoes button:nth-child(1):hover{
+  background: #16085b;
+  border-color: #16085b;
+}
+
+.botoes button:nth-child(2){
+  background: #fff;
+  color: #191970;
+}
+
+.botoes button:nth-child(2):hover{
+  background: #191970;
+  color: #fff;
+}
